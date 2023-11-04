@@ -1,0 +1,26 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<Biblioteca.Models.Autor> 
+
+<h2>Lista de Autores</h2>
+<a class="btn btn-primary form-group" href="@Url.Action("Agregar","Autores")">Agregar Autor</a>
+<table class="table">
+    <tr>
+        <th>Id Autor</th>
+        <th>Nombre Autor</th>
+    </tr>
+
+    @foreach (var autor in Model)
+    {
+        <tr>
+            <td>@autor.Id</td>
+            <td>@autor.Nombre</td>
+            
+        </tr>
+    }
+</table>
+
