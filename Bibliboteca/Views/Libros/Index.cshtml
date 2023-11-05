@@ -1,26 +1,39 @@
 ﻿
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Libros";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Listado de Libros</h2>
-<a class="btn btn-primary form-group" href="@Url.Action("Agregar","Libros")">Agregar Libros</a>
-<a class="btn btn-primary form-group" href="@Url.Action("Agregar","Autores")">Agregar Autor</a>
+<div class="container mt-5">
 
-<table class="table">
-    <tr>
-        <th>Id Libro</th>
-        <th>Título</th>
-        <th>Autor</th>
-    </tr>
-    @foreach (var libro in Model)
-    {
-        <tr>
-            <td>@libro.Id</td>
-            <td>@libro.Titulo</td>
-            <td>@libro.Autor.Nombre</td>
+
+    <h2  style=" font-size: 30px; text-align: center; margin-top: 20px;">Listado de Libros</h2>
+
+    <a class="btn btn-primary form-group px-8 py-2" style="margin-bottom: 20px; margin-left: 120px;" href="@Url.Action("Agregar","Libros")">
+        Agregar Libros
+    </a>
+    <a class="btn btn-primary form-group px-8 py-2" style="margin-bottom: 20px; margin-left: 20px;" href="@Url.Action("Agregar","Autores")">
+        Agregar Autor
+    </a>
+    <table class="table table-striped" style="width: 1000px; margin: 0 auto;">
+        <thead>
+            <tr>
+                <th>Id Libro</th>
+                <th>Título</th>
+                <th>Autor</th>
         </tr>
-    }
-</table>
+        </thead>
 
+        <tbody>
+            @foreach (var libro in Model)
+            {
+                <tr>
+                    <td>@libro.Id</td>
+                    <td>@libro.Titulo</td>
+                    <td>@libro.Autor.Nombre</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

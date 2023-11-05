@@ -3,21 +3,38 @@
     ViewData["Title"] = "Agregar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@model Biblioteca.Models.Libro
-<h2>Agregar un nuevo libro</h2>
-@using (Html.BeginForm("Agregar", "Libros", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.Titulo)
-        @Html.EditorFor(model => model.Titulo, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.AutorID)
-        @Html.DropDownListFor(model => model.AutorID, (SelectList)ViewBag.AutorID, "Selecciona un autor", new { @class = "form-control" })
-    </div>
+<div class="container mt-5">
+    <h2 class="text-center">Agregar Libros</h2>
+    <form action="@Url.Action("Agregar", "Libros")" method="post">
+        @Html.AntiForgeryToken()
+        <div class="form-group col-5 offset-md-2 mt-3">
+            <label class="mb-2 " for="nombre">Nombre del Libro:</label>
+            <input placeholder="Escriba el Nombre del Libro" type="text" class="form-control" id="nombre" name="Titulo" required>
+        </div>
+        <div class="form-group col-5 offset-md-2 mt-3">
+            <label class="mb-2 " for="nombre">Autor:</label>
 
-    <input type="submit" value="Agregar" class="btn btn-primary" />
-}
+
+            <select class="form-control" id="AutorID" name="AutorID">
+                <option value="">Selecciona un autor</option>
+                @foreach (var autor in ViewBag.AutorID)
+                {
+                    <option value="@autor.Value">@autor.Text</option>
+                }
+            </select>
+        </div  class="form-group col-5 offset-md-2 mt-3">
+
+        <div class="form-group col-5 offset-md-2 mt-3">
+            <button type="submit" class="btn btn-primary mb-2 mt-2 ">
+            Guardar
+            </button>
+            <div>
+                @Html.ActionLink("Volver a la Lista", "Index")
+            </div>
+        </div>
+        
+
+    </form>
+</div>
