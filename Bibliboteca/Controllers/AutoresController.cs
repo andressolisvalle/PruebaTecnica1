@@ -31,9 +31,6 @@ namespace Bibliboteca.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Agregar(Autor autor)
         {
-
-            
-
             if (ModelState.IsValid)
             {
                 var existingAuthor = _context.Autores.FirstOrDefault(a => a.Nombre == autor.Nombre);
