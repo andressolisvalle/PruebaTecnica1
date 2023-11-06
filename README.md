@@ -11,18 +11,17 @@ El objetivo principal de esta aplicación es permitir a los usuarios ver, agrega
   5. Ejecuta el aplicativo
 
 • Capturas de pantalla de las principales funcionalidades de la aplicación
-1. Registro de Autores 
-![image](https://github.com/andressolisvalle/PruebaTecnica/assets/70975987/2c46dd4b-3e1b-4e1f-b32b-4453e86ce7f7)
-
+1. Registro de Autores
+   ![image](https://github.com/andressolisvalle/PruebaTecnica/assets/70975987/8863589c-e477-43a3-b562-31626e9c38e9)
+   
 2. Listado de Autores
-![image](https://github.com/andressolisvalle/PruebaTecnica/assets/70975987/9ff9a1a3-e7e3-4fdb-8de5-7b6778093ae7)
+![image](https://github.com/andressolisvalle/PruebaTecnica/assets/70975987/83bd024a-6f1e-4c0e-9098-a66b76fc5da9)
 
 3.Agregar Libros
-
-![image](https://github.com/andressolisvalle/PruebaTecnica/assets/70975987/b7f9fb69-b1e0-480d-859f-169cb4193338)
+![image](https://github.com/andressolisvalle/PruebaTecnica/assets/70975987/0ebac336-c885-4e05-a753-427a54130c63)
 
 4.Listado de Libros 
-![image](https://github.com/andressolisvalle/PruebaTecnica/assets/70975987/cdec7822-132f-4c91-b3b3-a7cd44ff4091)
+![image](https://github.com/andressolisvalle/PruebaTecnica/assets/70975987/d96522de-67a9-44a0-8a28-eee4e92d28f9)
 
 • Diagrama entidad relación de la base de datos
 ![image](https://github.com/andressolisvalle/PruebaTecnica/assets/70975987/2c0bbd06-265a-4705-871d-42149c37104f)
