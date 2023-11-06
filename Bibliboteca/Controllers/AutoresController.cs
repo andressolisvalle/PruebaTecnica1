@@ -15,32 +15,54 @@ namespace Bibliboteca.Controllers
             _context = context;
         }
 
-        // Acción para mostrar la lista de autores
         public ActionResult Index()
         {
             var autores = _context.Autores.ToList();
             return View(autores);
         }
 
-        // Acción para mostrar el formulario de agregar un autor
         public ActionResult Agregar()
         {
             
             return View();
         }
 
-        // Acción para procesar la solicitud de agregar un autor
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Agregar(Autor autor)
         {
+
+            var existingAuthor = _context.Autores.FirstOrDefault(a => a.Nombre == autor.Nombre);
+
+            if (existingAuthor != null)
+            {
+                ModelState.AddModelError(autor.Nombre, "Ya existe un autor con el mismo nombre.");
+                return View(autor);
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Autores.Add(autor);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
+
             }
+
             return View(autor);
+
         }
+
+        
+
+        public ActionResult Eliminar(int id)
+        {
+            var autor = _context.Autores.Find(id);
+
+            _context.Autores.Remove(autor);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

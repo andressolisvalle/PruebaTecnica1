@@ -7,16 +7,22 @@
 <div class="container mt-5">
 
 
-    <h2  style=" font-size: 30px; text-align: center; margin-top: 20px;">Listado de Libros</h2>
+    <h2 class="fs-30 text-center mt-3">Listado de Libros</h2>
 
-    <a class="btn btn-primary form-group px-8 py-2" style="margin-bottom: 20px; margin-left: 120px;" href="@Url.Action("Agregar","Libros")">
-        Agregar Libros
-    </a>
-    <a class="btn btn-primary form-group px-8 py-2" style="margin-bottom: 20px; margin-left: 20px;" href="@Url.Action("Agregar","Autores")">
-        Agregar Autor
-    </a>
-    <table class="table table-striped" style="width: 1000px; margin: 0 auto;">
-        <thead>
+    <div class="form-group mx-auto px-1 py-1 m-2 w-75">
+        <a class="btn btn-success form-group" href="@Url.Action("Agregar","Libros")">
+            Agregar Libros
+        </a>
+        <a class="btn btn-success form-group ms-1" href="@Url.Action("Agregar","Autores")">
+            Agregar Autor
+        </a>
+        <hr />
+    </div>
+
+    
+
+    <table class="table table-striped mx-auto w-75  text-center ">
+        <thead >
             <tr>
                 <th>Id Libro</th>
                 <th>Título</th>
@@ -31,6 +37,11 @@
                     <td>@libro.Id</td>
                     <td>@libro.Titulo</td>
                     <td>@libro.Autor.Nombre</td>
+                    <td>
+                        <a class="fa-solid fa-trash " style="color: #df0c0c;" href="@Url.Action("Eliminar", "Libros", new { id = libro.Id })">
+
+                        </a>
+                    </td>
                 </tr>
             }
         </tbody>

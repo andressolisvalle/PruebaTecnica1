@@ -1,9 +1,8 @@
-﻿
+﻿    
 @{
     ViewData["Title"] = "Agregar";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <div class="container mt-5">
     <h2 class="text-center">Registro de Autor</h2>
@@ -11,8 +10,8 @@
         @Html.AntiForgeryToken()
         <div class="form-group col-5 offset-md-2 mt-3">
             <label class="mb-2 " for="nombre">Nombre del Autor:</label>
-            <input placeholder="Escriba el Nombre del Autor" type="text" class="form-control" id="nombre" name="nombre" required pattern="[a-zA-Z]+">
-            <button type="submit" class="btn btn-primary mb-2 mt-2 " >
+            <input placeholder="Escriba el Nombre del Autor" type="text" class="form-control " id="nombre" name="nombre" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+">
+            <button type="submit" class="btn btn-success mb-2 mt-2 ">
                 Registrar Autor
             </button>
             <div>
@@ -22,5 +21,9 @@
      
     </form>
 </div>
+
+
+
+
 
 

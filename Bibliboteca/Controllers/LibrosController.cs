@@ -34,6 +34,15 @@ namespace Biblioteca.Controllers
         {
             if (ModelState.IsValid)
             {
+                var existeLibro = _context.Libros.FirstOrDefault(l => l.Titulo == libro.Titulo);
+
+                if (existeLibro != null)
+                {
+                    ModelState.AddModelError(libro.Titulo, "Ya existe un libro con el mismo nombre.");
+                    ViewBag.AutorID = new SelectList(_context.Autores, "Id", "Nombre", libro.Id);
+                    return View(libro);
+                }
+
                 _context.Libros.Add(libro);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
@@ -41,6 +50,16 @@ namespace Biblioteca.Controllers
 
             ViewBag.AutorID = new SelectList(_context.Autores, "Id", "Nombre", libro.Id);
             return View(libro);
+        }
+
+        public ActionResult Eliminar(int id)
+        {
+            var libro = _context.Libros.Find(id);
+
+            _context.Libros.Remove(libro);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
     }

@@ -103,6 +103,10 @@ body {
     -webkit-text-size-adjust: 100%;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+.my-custom-table {
+    width: 50%; /* Establece el ancho al 80% del contenedor */
+    height: 300px; /* Establece la altura a 300px */
+}
 .custom-margin-right {
     margin-right: 120px;
     margin-left: 120px;
