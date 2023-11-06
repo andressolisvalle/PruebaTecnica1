@@ -7,7 +7,7 @@ El objetivo principal de esta aplicación es permitir a los usuarios ver, agrega
   1. el primer paso es clonar o descargar el repositorio
   2. abre el proyecto y dirigete al archivo appsettings.json.
   3. especifica el nombre o la dirección del servidor de la base de datos al que te estás conectando. cambia ANDRES-SOLIS por el nombre de tu servidor de sqlServer
-  4. ejecuta la migracion para que se te cree la base de datos y los modelos de tus tablas. Ejecutando el siguiente comando: update-database
+  4. ejecuta la migracion para que se te cree la base de datos y los modelos de tus tablas. Ejecutando el siguiente comando: update-database o crea la base de datos con el script compartido 
   5. Ejecuta el aplicativo
 
 • Capturas de pantalla de las principales funcionalidades de la aplicación
