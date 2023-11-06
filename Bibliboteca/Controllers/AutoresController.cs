@@ -32,16 +32,17 @@ namespace Bibliboteca.Controllers
         public ActionResult Agregar(Autor autor)
         {
 
-            var existingAuthor = _context.Autores.FirstOrDefault(a => a.Nombre == autor.Nombre);
-
-            if (existingAuthor != null)
-            {
-                ModelState.AddModelError(autor.Nombre, "Ya existe un autor con el mismo nombre.");
-                return View(autor);
-            }
+            
 
             if (ModelState.IsValid)
             {
+                var existingAuthor = _context.Autores.FirstOrDefault(a => a.Nombre == autor.Nombre);
+
+                if (existingAuthor != null)
+                {
+                    ModelState.AddModelError(autor.Nombre, "Ya existe un autor con el mismo nombre.");
+                    return View(autor);
+                }
                 _context.Autores.Add(autor);
                 _context.SaveChanges();
                 return RedirectToAction("Index");
