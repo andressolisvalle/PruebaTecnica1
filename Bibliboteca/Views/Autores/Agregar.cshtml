@@ -25,5 +25,39 @@
 
 
 
+@section Scripts{
 
+    @{
+        var errorMessage = TempData["MessageError"] as string;
+        var successMessage = TempData["SuccessMessage"] as string;
+
+    }
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <script>
+            $(document).ready(function () {            
+                    Swal.fire({
+                        title: "Error al Guardar",
+                        text: "@errorMessage",
+                        icon: "error"
+                    });
+            });
+        </script>
+    }    
+    @if (!string.IsNullOrEmpty(successMessage))
+    {
+        <script>
+            $(document).ready(function () {
+                Swal.fire({
+                    title: "Éxito",
+                    text: "@successMessage",
+                    icon: "success"
+                });
+            });
+        </script>
+    }
+
+
+}
 

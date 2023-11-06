@@ -17,7 +17,7 @@
             <label class="mb-2 " for="nombre">Autor:</label>
 
 
-            <select class="form-control" id="AutorID" name="AutorID">
+            <select class="form-control" id="AutorID" name="AutorID" required>
                 <option value="">Selecciona un autor</option>
                 @foreach (var autor in ViewBag.AutorID)
                 {
@@ -37,3 +37,42 @@
 
     </form>
 </div>
+
+
+@section Scripts{
+
+    @{
+        var errorMessage = TempData["MessageError"] as string;
+        var successMessage = TempData["SuccessMessage"] as string;
+    }
+
+    @if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <script>
+            $(document).ready(function () {            
+                    Swal.fire({
+                        title: "Error al Guardar",
+                        text: "@errorMessage",
+                        icon: "error"
+                    });
+            });
+        </script>
+    }
+
+
+
+    @if (!string.IsNullOrEmpty(successMessage))
+    {
+        <script>
+            $(document).ready(function () {
+                Swal.fire({
+                    title: "Éxito",
+                    text: "@successMessage",
+                    icon: "success"
+                });
+            });
+        </script>
+    }
+
+
+}

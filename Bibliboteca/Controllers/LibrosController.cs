@@ -38,14 +38,16 @@ namespace Biblioteca.Controllers
 
                 if (existeLibro != null)
                 {
-                    ModelState.AddModelError(libro.Titulo, "Ya existe un libro con el mismo nombre.");
+                    TempData["MessageError"] = "Ya existe un libro con el mismo nombre.";
+
                     ViewBag.AutorID = new SelectList(_context.Autores, "Id", "Nombre", libro.Id);
                     return View(libro);
                 }
 
                 _context.Libros.Add(libro);
                 _context.SaveChanges();
-                return RedirectToAction("Index");
+                TempData["SuccessMessage"] = "El autor se ha guardado correctamente.";
+
             }
 
             ViewBag.AutorID = new SelectList(_context.Autores, "Id", "Nombre", libro.Id);

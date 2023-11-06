@@ -40,12 +40,15 @@ namespace Bibliboteca.Controllers
 
                 if (existingAuthor != null)
                 {
-                    ModelState.AddModelError(autor.Nombre, "Ya existe un autor con el mismo nombre.");
+                    TempData["MessageError"] = "Ya existe un autor con el mismo nombre.";
+
                     return View(autor);
                 }
                 _context.Autores.Add(autor);
                 _context.SaveChanges();
-                return RedirectToAction("Index");
+
+                TempData["SuccessMessage"] = "El autor se ha guardado correctamente.";
+
 
             }
 
